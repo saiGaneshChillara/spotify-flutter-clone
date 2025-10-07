@@ -7,6 +7,7 @@ import 'package:myapp/core/configs/assets/app_images.dart';
 import 'package:myapp/core/configs/assets/app_vectors.dart';
 import 'package:myapp/core/configs/theme/app_colors.dart';
 import 'package:myapp/presentation/auth/pages/register.dart';
+import 'package:myapp/presentation/auth/pages/signin.dart';
 
 class SignupOrSigninPage extends StatelessWidget {
   const SignupOrSigninPage({super.key});
@@ -19,52 +20,35 @@ class SignupOrSigninPage extends StatelessWidget {
           const BasicAppBar(),
           Align(
             alignment: Alignment.topRight,
-            child: SvgPicture.asset(
-              AppVectors.topPattern,
-            ),
+            child: SvgPicture.asset(AppVectors.topPattern),
           ),
           Align(
             alignment: Alignment.bottomRight,
-            child: SvgPicture.asset(
-              AppVectors.bottomPattern,
-            ),
+            child: SvgPicture.asset(AppVectors.bottomPattern),
           ),
           Align(
             alignment: Alignment.bottomLeft,
-            child: Image.asset(
-              AppImages.authBg,
-            ),
+            child: Image.asset(AppImages.authBg),
           ),
           Align(
             alignment: Alignment.center,
             child: Padding(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 40,
-              ),
+              padding: const EdgeInsets.symmetric(horizontal: 40),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  SvgPicture.asset(
-                    AppVectors.logo,
-                  ),
-              
-                  const SizedBox(
-                    height: 55,
-                  ),
-              
+                  SvgPicture.asset(AppVectors.logo),
+
+                  const SizedBox(height: 55),
+
                   Text(
                     "Enjoy Listening to Music",
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 26,
-                    ),
+                    style: TextStyle(fontWeight: FontWeight.bold, fontSize: 26),
                   ),
-              
-                  const SizedBox(
-                    height: 21,
-                  ),
-              
+
+                  const SizedBox(height: 21),
+
                   Text(
                     "Spotify is a propietary Swedish audio streaming and media services provider.",
                     style: TextStyle(
@@ -74,11 +58,9 @@ class SignupOrSigninPage extends StatelessWidget {
                     ),
                     textAlign: TextAlign.center,
                   ),
-              
-                  const SizedBox(
-                    height: 30,
-                  ),
-              
+
+                  const SizedBox(height: 30),
+
                   Row(
                     children: [
                       Expanded(
@@ -87,7 +69,8 @@ class SignupOrSigninPage extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (BuildContext context) => const RegisterPage(),
+                                builder: (BuildContext context) =>
+                                    const RegisterPage(),
                               ),
                             );
                           },
@@ -95,20 +78,27 @@ class SignupOrSigninPage extends StatelessWidget {
                         ),
                       ),
 
-                      const SizedBox(
-                        width: 20,
-                      ),
+                      const SizedBox(width: 20),
 
                       Expanded(
                         flex: 1,
                         child: TextButton(
-                          onPressed: () {},
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (BuildContext context) => const SigninPage(),
+                              )
+                            );
+                          },
                           child: Text(
                             "Sign in",
                             style: TextStyle(
                               fontWeight: FontWeight.bold,
                               fontSize: 16,
-                              color: context.isDarkMode ? Colors.white : Colors.black,
+                              color: context.isDarkMode
+                                  ? Colors.white
+                                  : Colors.black,
                             ),
                           ),
                         ),

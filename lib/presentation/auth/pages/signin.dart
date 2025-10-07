@@ -3,15 +3,15 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:myapp/common/widgets/app_bar/app_bar.dart';
 import 'package:myapp/common/widgets/button/basic_app_button.dart';
 import 'package:myapp/core/configs/assets/app_vectors.dart';
-import 'package:myapp/presentation/auth/pages/signin.dart';
+import 'package:myapp/presentation/auth/pages/register.dart';
 
-class RegisterPage extends StatelessWidget {
-  const RegisterPage({super.key});
+class SigninPage extends StatelessWidget {
+  const SigninPage({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      bottomNavigationBar: _signInText(context),
+      bottomNavigationBar: _signUpText(context),
       appBar: BasicAppBar(
         title: SvgPicture.asset(
           AppVectors.logo, 
@@ -27,7 +27,7 @@ class RegisterPage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            _registerText(),
+            _signInText(),
             const SizedBox(
               height: 50,
             ),
@@ -43,13 +43,6 @@ class RegisterPage extends StatelessWidget {
               "Enter Email",
             ),
             const SizedBox(
-              height: 20,
-            ),
-            _inputTextField(
-              context, 
-              "Password"
-            ),
-            const SizedBox(
               height: 30,
             ),
             BasicAppButton(
@@ -62,9 +55,9 @@ class RegisterPage extends StatelessWidget {
     );
   }
 
-  Widget _registerText() {
+  Widget _signInText() {
     return Text(
-      "Register",
+      "Sign In",
       style: const TextStyle(
         fontWeight: FontWeight.bold,
         fontSize: 25,
@@ -85,7 +78,7 @@ class RegisterPage extends StatelessWidget {
     );
   }
 
-  Widget _signInText(BuildContext context) {
+  Widget _signUpText(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(
         vertical: 30,
@@ -94,7 +87,7 @@ class RegisterPage extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Text(
-            "Do you have an account? ",
+            "Not a Member? ",
             style: const TextStyle(
               fontWeight: FontWeight.w500,
               fontSize: 14,
@@ -105,11 +98,11 @@ class RegisterPage extends StatelessWidget {
               Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (BuildContext context) => const SigninPage(),
+                  builder: (BuildContext context) => const RegisterPage(),
                 )
               );
             },
-            child: Text("Sign In"),
+            child: Text("Register now"),
           ),
         ],
       ),
